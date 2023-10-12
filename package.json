@@ -1,0 +1,20 @@
+{
+	"name": "pragment-tech-assignment",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "npx tsc",
+		"start": "node dist/index.js"
+	},
+	"devDependencies": {
+		"@types/node": "^20.8.4",
+		"typescript": "^5.2.2"
+	},
+	"dependencies": {
+		"dotenv": "^16.3.1",
+		"en-dictionary": "^1.2.4",
+		"en-wordnet": "^2.0.6",
+		"mongodb": "^6.1.0"
+	}
+}
