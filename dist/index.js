@@ -35,9 +35,10 @@ const env = (0, envalid_1.cleanEnv)(process.env, {
     MONGODB_COLLECTION: (0, envalid_1.str)(),
 });
 const mongoClient = new mongodb_1.MongoClient(env.MONGODB_URI);
+const mongoConnected = new Promise((resolve) => mongoClient.connect().then(resolve));
 app.get("/dictionary", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield mongoClient.connect();
+        yield mongoConnected;
         const collection = mongoClient
             .db(env.MONGODB_DB)
             .collection(env.MONGODB_COLLECTION);
@@ -54,8 +55,10 @@ app.get("/dictionary", (req, res) => __awaiter(void 0, void 0, void 0, function*
         if (!meaning) {
             yield dictionaryInitialized;
             meaning = [...dictionary.searchSimpleFor([searchQuery]).values()][0];
-            if (meaning)
-                yield collection.insertOne({ word: searchQuery, meaning });
+            // no meaning found even in dictionary
+            if (!meaning)
+                return res.json(null);
+            yield collection.insertOne({ word: searchQuery, meaning });
         }
         return res.json(meaning);
     }
