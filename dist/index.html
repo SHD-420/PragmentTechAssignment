@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API OVERVIEW</title>
+    <style>
+      :root {
+        --primary-light: #d2ffff;
+        --primary: #008686;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      header {
+        background-color: var(--primary-light);
+        color: var(--primary);
+        padding: 1rem 2rem;
+      }
+      main {
+        padding: 1rem 2rem;
+      }
+
+      li {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        padding: 1rem 0;
+      }
+      li:not(:last-child) {
+        border-bottom: 1px dotted #999;
+      }
+      li h4 {
+        background-color: #ffeacf;
+        color: #ff7b00;
+        padding: 0.5rem 1rem;
+      }
+      li code {
+        margin-left: 0.5rem;
+        margin-right: 1rem;
+        background-color: #eee;
+        color: #555;
+        padding: 0.25rem 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Assignment API Overview</h1>
+    </header>
+    <main>
+      <ul>
+        <li>
+          <h4>GET</h4>
+          <code>/dictionary</code>
+          <p>List all word meanings stored in db.</p>
+        </li>
+        <li>
+          <h4>GET</h4>
+          <code>/dictionary?query=</code>
+          <p>Fetch meaning of a word</p>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
